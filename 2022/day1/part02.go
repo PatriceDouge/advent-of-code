@@ -26,7 +26,9 @@ func main() {
 	readFile.Close()
 
 	currentCal := 0
-	maxCal := 0
+	maxCalFirst := 0
+	maxCalSecond := 0
+	maxCalThird := 0
 
 	for _, num := range fileLines {
 
@@ -37,13 +39,19 @@ func main() {
 
 		// if not empty, theres a space, check if currentCal > maxCal
 		if err != nil {
-			if currentCal > maxCal {
-				maxCal = currentCal
+			if currentCal > maxCalThird {
+				maxCalThird = currentCal
+			}
+			if maxCalThird > maxCalSecond {
+				maxCalThird, maxCalSecond = maxCalSecond, maxCalThird
+			}
+			if maxCalSecond > maxCalFirst {
+				maxCalSecond, maxCalFirst = maxCalFirst, maxCalSecond
 			}
 			currentCal = 0
 		}
 
 	}
 
-	fmt.Println(maxCal)
+	fmt.Println(maxCalFirst + maxCalSecond + maxCalThird)
 }
