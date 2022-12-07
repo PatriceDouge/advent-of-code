@@ -1,6 +1,6 @@
 go 1.19
 
 use (
-	./2022/day1
+	./day1
 	./starter
 )
