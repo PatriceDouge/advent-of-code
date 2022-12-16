@@ -1,7 +1,9 @@
 /*
-   Elf gives strategy guide on what to play based on what player A plays.
+   For part 2, second column says how the round needs to end: X means you
+   need to lose, Y means you need to end the round in a draw, and Z means
+   you need to win.
    First column:  A for Rock, B for Paper, and C for Scissors
-   Second column: X for Rock, Y for Paper, and Z for Scissors
+   Second column: X for lose, Y for draw, and Z for win
 
    Total score is the sum of your scores for each round.
    The score for a single round is the score for the shape you selected
@@ -46,13 +48,13 @@ func main() {
 
 	scores := make(map[string]int)
 	scores["B X"] = 1
-	scores["C Y"] = 2
-	scores["A Z"] = 3
-	scores["A X"] = 4
+	scores["C Y"] = 6
+	scores["A Z"] = 8
+	scores["A X"] = 3
 	scores["B Y"] = 5
-	scores["C Z"] = 6
-	scores["C X"] = 7
-	scores["A Y"] = 8
+	scores["C Z"] = 7
+	scores["C X"] = 2
+	scores["A Y"] = 4
 	scores["B Z"] = 9
 
 	for _, turn := range fileLines {
