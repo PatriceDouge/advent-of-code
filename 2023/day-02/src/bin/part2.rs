@@ -1,7 +1,3 @@
-const MAX_RED: u32 = 12;
-const MAX_GREEN: u32 = 13;
-const MAX_BLUE: u32 = 14;
-
 fn main() {
     let input = include_str!("../../input1.txt");
     let output: i32 = process(&input);
@@ -13,8 +9,6 @@ fn process(input: &str) -> i32 {
 
     for line in input.lines() {
         let game_info: Vec<&str> = line.split(':').collect();
-        let game = game_info[0].trim();
-        let game_id: i32 = game.chars().filter(|c| c.is_digit(10)).collect::<String>().parse::<i32>().unwrap();
         let game_cubes = game_info[1].trim();
 
         let mut max_red: i32 = 0;
